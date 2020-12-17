@@ -1,0 +1,8 @@
+Client/bin/
+Client/obj/
+Server/bin/Debug/netcoreapp3.1/BlazorMovies.Server.Views.dll
+Server/bin/
+Server/obj/Debug/netcoreapp3.1/BlazorMovies.Server.csproj.CopyComplete
+Server/obj/
+Shared/obj/
+Shared/bin/
