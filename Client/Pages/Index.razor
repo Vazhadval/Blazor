@@ -1,18 +1,12 @@
 ﻿@page "/"
-
+@inject IRepository _repository
 
 
 <div>
     <h3>Movies</h3>
-    <MoviesList Movies="movies">
-        <NullTemplate>
-            <span style="color:red">Loading...</span>
-        </NullTemplate>
-        <EmptyTemplate>
-            <span style="color:red">There are not records to display</span>
-        </EmptyTemplate>
-    </MoviesList>
 
+    <MoviesList Movies="movies" />
+    <button @onclick="AddNewMovie">Add new movie</button>
 
 </div>
 
@@ -21,12 +15,16 @@
     protected override void OnInitialized()
     {
 
-        movies = new List<Movie>()
+        movies = _repository.GetMovies();
+    }
+
+    private void AddNewMovie()
     {
-                    new Movie() {Title="Spider-Man",ReleaseDate=new DateTime(2003,2,5)},
-                    new Movie() {Title="Inception", ReleaseDate=new DateTime(2010,5,12)},
-                    new Movie() {Title="Wild Tales", ReleaseDate=new DateTime(2017,7,15)}
-                };
+        movies.Add(new Movie
+        {
+            Title = "new movie",
+            ReleaseDate = DateTime.Now
+        });
     }
 
 }
