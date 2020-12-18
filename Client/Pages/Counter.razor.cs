@@ -11,6 +11,8 @@ namespace BlazorMovies.Client.Pages
     {
         [Inject]
         public IJSRuntime JS { get; set; }
+        [CascadingParameter]
+        public string Color { get; set; }
 
         private int currentCount = 0;
         private static int count = 0;
