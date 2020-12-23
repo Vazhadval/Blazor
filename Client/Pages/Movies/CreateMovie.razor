@@ -1,10 +1,23 @@
 ﻿@page "/movies/create"
 
-<h3>CreateMovie</h3>
+<h3>Create Movie</h3>
 
 
-<button class="btn btn-primary">Save Movie</button>
+<MovieForm Movie="Movie" OnValidSubmit="SaveMove" NotSelectedGenres="NotSelectedGenres" />
 
 @code {
+    private Movie Movie = new Movie();
 
+    private List<Genre> NotSelectedGenres = new List<Genre>()
+{
+        new Genre(){Id=1,Name="Action"},
+        new Genre(){Id=2,Name="Comedy"},
+        new Genre(){Id=3,Name="Drama"}
+    };
+
+
+    private void SaveMove()
+    {
+
+    }
 }
