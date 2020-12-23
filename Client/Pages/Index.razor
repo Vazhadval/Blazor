@@ -4,10 +4,7 @@
 
 <div>
     <h3>Movies</h3>
-
     <MoviesList Movies="movies" />
-    <button @onclick="AddNewMovie">Add new movie</button>
-
 </div>
 
 @code {
@@ -17,14 +14,4 @@
 
         movies = _repository.GetMovies();
     }
-
-    private void AddNewMovie()
-    {
-        movies.Add(new Movie
-        {
-            Title = "new movie",
-            ReleaseDate = DateTime.Now
-        });
-    }
-
 }
