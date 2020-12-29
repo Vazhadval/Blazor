@@ -6,3 +6,4 @@ Server/obj/Debug/netcoreapp3.1/BlazorMovies.Server.csproj.CopyComplete
 Server/obj/
 Shared/obj/
 Shared/bin/
+.vs/
