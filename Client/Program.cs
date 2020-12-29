@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Tewr.Blazor.FileReader;
 
 namespace BlazorMovies.Client
 {
@@ -19,6 +20,8 @@ namespace BlazorMovies.Client
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddTransient<IRepository, RepositoryInMemory>();
+
+            builder.Services.AddFileReaderService(options => options.InitializeOnFirstCall = true);
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 

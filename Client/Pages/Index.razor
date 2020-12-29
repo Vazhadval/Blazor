@@ -4,11 +4,14 @@
 
 <div>
     <h3>Movies</h3>
-
     <MoviesList Movies="movies" />
-    <button @onclick="AddNewMovie">Add new movie</button>
-
 </div>
+
+<CustomTypeahead SearchMethod="SearchMethod">
+    <ResultTemplate>
+        @context
+    </ResultTemplate>
+</CustomTypeahead>
 
 @code {
     private List<Movie> movies;
@@ -18,13 +21,14 @@
         movies = _repository.GetMovies();
     }
 
-    private void AddNewMovie()
+    private async Task<IEnumerable<string>> SearchMethod(string searchText)
     {
-        movies.Add(new Movie
+        await Task.Delay(2000);
+        if (searchText == "test")
         {
-            Title = "new movie",
-            ReleaseDate = DateTime.Now
-        });
-    }
+            return Enumerable.Empty<string>();
+        }
 
+        return new List<string>() { "Vazha", "Dvalishvili" };
+    }
 }
